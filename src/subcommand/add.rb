@@ -12,8 +12,7 @@ class Add < Command
     def run
         return unless is_executable?
 
-        escaped_path = @subcommand[2].gsub(" ", "\\ ")
-        @registered << Registered.new({name: @subcommand[1], path: escaped_path})
+        @registered << Registered.new({name: @app_name, path: @app_path})
         zipped = @registered.map { |m| m.zipped }
         
         @in_out.write_registered(zipped)
@@ -30,10 +29,35 @@ class Add < Command
             return false
         end
 
+        app_name = @subcommand[1]
+        escaped_path = @subcommand[2].gsub(" ", "\\ ")
+
+        #Check duplication
+        @registered.each do |m|
+            if m.name == app_name
+                show_duplication_error(app_name)
+                return false
+            end
+
+            ## What about a path?
+            #if m.path == escaped_path
+            #    show_duplication_error(escaped_path)
+            #    return false
+            #end
+        end
+
+        @app_name = app_name
+        @app_path = escaped_path
+
         return true
     end
 
     def show_help
         puts "Usage: your-alias-launcer add <app-name> </path/to/app>"
+    end
+
+    def show_duplication_error(target)
+        puts "Error: '#{target}' is already exist."
+        puts "Please use another one."
     end
 end
