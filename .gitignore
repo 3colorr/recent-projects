@@ -9,9 +9,11 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+.DS_Store
 
-# Ignore config yaml files and stored yaml files
-/src/yaml/*.yaml
+# Ignore stored yaml files
+/src/yaml/history.yaml
+/src/yaml/registered.yaml
 
 # Used by dotenv library to load environment variables.
 # .env
