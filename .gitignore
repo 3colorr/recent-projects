@@ -10,6 +10,9 @@
 /test/version_tmp/
 /tmp/
 
+# Ignore config yaml files and stored yaml files
+/src/yaml/*.yaml
+
 # Used by dotenv library to load environment variables.
 # .env
 
