@@ -56,7 +56,7 @@ ruby ~/recent-projects/exec.rb [コマンド]
 
 # Quick Start
 ### jp
-(例)VSCodeを使ってmy-projectを開きます。
+(例)VSCodeを使って`my-project`を開きます。そして、次の日に`my-project`を開き、作業を再開します
 ```
 $rp add vscode /path/to/vscode/bin/code
 $rp vscode /path/to/my-project
@@ -67,17 +67,19 @@ $rp list
  1. my-project opened by vscode
   ---- /path/to/my-project
 $rp 1
+Open: /path/to/my-project
 ```
 ### en
-(e.g.)We open a my-project with VSCode.
+(e.g.)We open `my-project` with VSCode. And the next day, we poen `my-project` with VSCode and work.
 ```
 $rp add vscode /path/to/vscode/bin/code
 $rp vscode /path/to/my-project
 
->>> A next day...
+>>> The next day...
 
 $rp list
  1. my-project opened by vscode
   ---- /path/to/my-project
 $rp 1
+Open: /path/to/my-project
 ```
