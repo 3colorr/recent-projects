@@ -12,6 +12,7 @@ class Launcher < Command
     def run
         return unless is_executable?
 
+        puts "Open: #{@project}"
         system("#{@app} #{@project}")
     end
 
