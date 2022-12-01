@@ -53,6 +53,8 @@ class Add < Command
     end
 
     def show_help
+        puts "Command: add"
+        puts "    Register an app along with installed path."
         puts "Usage: your-alias-launcer add <app-name> </path/to/app>"
     end
 

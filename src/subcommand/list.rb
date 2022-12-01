@@ -33,6 +33,8 @@ class List < Command
     end
 
     def show_help
+        puts "Command: list"
+        puts "    Show recently opened projects with 'history id'."
         puts "Usage: your-alias-launcer list"
     end
 

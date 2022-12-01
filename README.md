@@ -58,7 +58,7 @@ ruby ~/recent-projects/exec.rb [コマンド]
 ### jp
 (例)VSCodeを使って`my-project`を開きます。そして、次の日に`my-project`を開き、作業を再開します
 ```
-$rp add vscode /path/to/vscode/bin/code
+$rp add vscode /path/to/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code
 $rp vscode /path/to/my-project
 
 >>> 次の日...
@@ -72,7 +72,7 @@ Open: /path/to/my-project
 ### en
 (e.g.)We open `my-project` with VSCode. And the next day, we poen `my-project` with VSCode and work.
 ```
-$rp add vscode /path/to/vscode/bin/code
+$rp add vscode /path/to/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code
 $rp vscode /path/to/my-project
 
 >>> The next day...
