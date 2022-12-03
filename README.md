@@ -29,12 +29,12 @@ Getting ready.
 cd ~
 git clone https://github.com/3colorr/recent-projects.git
 ```
-次にエイリアスを設定しますが、スキップしても良いです。
+次にエイリアスを設定します。
+エイリアスは`rp`出なくても良いですが、このREADMEでは`rp`を設定したものとして説明します。
 ```
-vi .zshrc
-> alias rp="ruby ~/recent-projects/exec.rb"
+echo 'alias rp="ruby ~/recent-projects/exec.rb"' >> .zshrc
 ```  
-エイリアスの設定をスキップする場合は、`~/recent-project/exec.rb`を毎回入力してください。
+エイリアスの設定をしたくない場合は、`ruby ~/recent-project/exec.rb`を毎回入力してください。
 ```
 ruby ~/recent-projects/exec.rb [コマンド]
 ```
@@ -44,12 +44,12 @@ In this section, it is installed in the user's home directory, but the installat
 cd ~
 git clone https://github.com/3colorr/recent-projects.git
 ```
-Next, we will set up an alias, but you can skip it.
+Next, you set up an alias.
+The alias does not have to be `rp`, but in this README it is explained assuming that `rp` is set.
 ```
-vi .zshrc
-> alias rp="ruby ~/recent-projects/exec.rb"
+echo 'alias rp="ruby ~/recent-projects/exec.rb"' >> .zshrc
 ```  
-If you skip the alias setting, you have to enter "~/recent-project/exec.rb" each time.
+If you do not want to the alias setting, you have to enter `ruby ~/recent-project/exec.rb` each time.
 ```
 ruby ~/recent-projects/exec.rb [コマンド]
 ```
