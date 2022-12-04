@@ -78,8 +78,8 @@ class Launcher < Command
 
     def show_help
         puts "Usage:"
-        puts "1. your-alias-launcer <app-name> </path/to/project>"
-        puts "2. your-alias-launcer <history-number>"
+        puts "1. rp <app-name> </path/to/project>"
+        puts "2. rp <history-number>"
     end
 
     def show_invaild_app(name)

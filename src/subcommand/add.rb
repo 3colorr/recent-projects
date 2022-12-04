@@ -55,7 +55,7 @@ class Add < Command
     def show_help
         puts "Command: add"
         puts "    Register an app along with installed path."
-        puts "Usage: your-alias-launcer add <app-name> </path/to/app>"
+        puts "Usage: rp add <app-name> </path/to/app>"
     end
 
     def show_duplication_error(target)
