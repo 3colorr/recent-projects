@@ -1,6 +1,7 @@
 require_relative "subcommand/add"
 require_relative "subcommand/launcher"
 require_relative "subcommand/list"
+require_relative "subcommand/remove"
 
 class Dispatcher
     def initialize(args)
@@ -13,8 +14,9 @@ class Dispatcher
             add = Add.new(@subcommand)
             add.run()
 
-        when "remove"
-            puts "ToDo: remove"
+        when "remove", "rm"
+            remove = Remove.new(@subcommand)
+            remove.run()
 
         when "list", "ls"
             list = List.new(@subcommand)
