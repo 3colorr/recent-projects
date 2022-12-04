@@ -33,9 +33,9 @@ class List < Command
     end
 
     def show_help
-        puts "Command: list"
+        puts "Command: list, ls"
         puts "    Show recently opened projects with 'history id'."
-        puts "Usage: your-alias-launcer list"
+        puts "Usage: rp list (or rp ls)"
     end
 
     def show_none_history

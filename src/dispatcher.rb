@@ -16,7 +16,7 @@ class Dispatcher
         when "remove"
             puts "ToDo: remove"
 
-        when "list"
+        when "list", "ls"
             list = List.new(@subcommand)
             list.run()
             
