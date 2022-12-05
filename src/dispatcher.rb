@@ -2,6 +2,7 @@ require_relative "subcommand/add"
 require_relative "subcommand/launcher"
 require_relative "subcommand/list"
 require_relative "subcommand/remove"
+require_relative "subcommand/apps"
 
 class Dispatcher
     def initialize(args)
@@ -21,7 +22,11 @@ class Dispatcher
         when "list", "ls"
             list = List.new(@subcommand)
             list.run()
-            
+        
+        when "apps"
+            apps = Apps.new(@subcommand)
+            apps.run()
+
         else
             launcher = Launcher.new(@subcommand)
             launcher.run
