@@ -33,11 +33,11 @@ class List < Command
 
     def show_help
         puts "Command: list, ls"
-        puts "    Show recently opened projects with 'history id'."
+        puts "    Show recently opened projects along with 'history id'."
         puts "Usage: rp list (or rp ls)"
     end
 
     def show_none_history
-        puts "None any history."
+        puts "No history."
     end
 end
