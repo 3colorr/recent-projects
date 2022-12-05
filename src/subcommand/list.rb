@@ -1,4 +1,3 @@
-require_relative "../model/registered"
 require_relative "../inout"
 require_relative "command"
 
