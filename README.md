@@ -24,7 +24,8 @@ Getting ready.
 
 # Installation
 ### jp
-ここでは、ユーザーのホームディレクトリにインストールしていますが、インストールディレクトリは任意の場所で良いです
+ここでは、ユーザーのホームディレクトリにインストールしていますが、インストールディレクトリは任意の場所で良いです。
+ただし、このREADMEではホームディレクトリに`recent-projects`をインストールしたものとして説明します。
 ```
 cd ~
 git clone https://github.com/3colorr/recent-projects.git
@@ -40,6 +41,7 @@ ruby ~/recent-projects/exec.rb [コマンド]
 ```
 ### en
 In this section, it is installed in the user's home directory, but the installation directory can be any location.
+But in this README it is explained assuming that `recent-projects` is installed user's home directory.
 ```
 cd ~
 git clone https://github.com/3colorr/recent-projects.git
