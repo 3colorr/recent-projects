@@ -18,9 +18,14 @@ We have confirmed the operation in the following environment.
 
 # How it works
 ### jp
-準備中
+- `recent-projects/src/yaml/registered.yaml`に`add`コマンドで書き込まれたVSCodeの`code`の絶対パスを読込み、指定されたプロジェクトフォルダを開きます。
+- 一度、プロジェクトを開くと`recent-projects/src/yaml/history.yaml`に履歴が保存されます。この履歴は`list`コマンドでリスト表示することができます。
+- `list`コマンドで表示される履歴のリストには`履歴ID`が載っています。この`履歴ID`を使ってプロジェクトを開くことができます。
+
 ### en
-Getting ready.
+- Read the absolute path of `code` of VSCode written by `add` command to `recent-projects/src/yaml/registered.yaml` and open the specified project folder.
+- Once you open the project, the history is saved in `recent-projects/src/yaml/history.yaml`. This history can be listed with the `list` command.
+- The `list` command show the list of histories along with `history ID`. You can open the project using this `history ID`.
 
 # Installation
 ### jp
@@ -53,8 +58,22 @@ echo 'alias rp="ruby ~/recent-projects/exec.rb"' >> .zshrc
 ```  
 If you do not want to the alias setting, you have to enter `ruby ~/recent-project/exec.rb` each time.
 ```
-ruby ~/recent-projects/exec.rb [コマンド]
+ruby ~/recent-projects/exec.rb [command]
 ```
+
+# Uninstalling recent-projects
+### jp
+`recent-projects`フォルダを削除してください。
+そして、`recent-projects/exec.rb`へのエイリアスを削除してください。
+```
+alias rp="ruby ~/recent-projects/exec.rb"
+```  
+### en
+Delete `recent-projects` folder.
+And delete an alias of `recent-projects/exec.rb`.
+```
+alias rp="ruby ~/recent-projects/exec.rb"
+```  
 
 # Quick Start
 ### jp
