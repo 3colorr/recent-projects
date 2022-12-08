@@ -3,6 +3,7 @@
 #
 
 require "yaml"
+require "fileutils"
 
 class InOut
 
@@ -54,7 +55,7 @@ class InOut
 
     private def read(path_to_yaml)
         unless File.exist?(path_to_yaml)
-            File.create(path_to_yaml)
+            FileUtils.touch(path_to_yaml)
             return []
         end
 
