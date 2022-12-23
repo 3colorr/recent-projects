@@ -13,7 +13,7 @@ class Launcher < Command
         return unless is_executable?
 
         puts "Open: #{@project}"
-        system("#{@app} #{@project}")
+        system("#{@app}", "#{@project}")
     end
 
     def is_executable?
