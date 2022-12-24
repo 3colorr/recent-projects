@@ -9,7 +9,7 @@ class InOut
 
     def initialize
         root_path = File.expand_path(__dir__)
-        @config_path = "#{root_path}/yaml/config.yaml"
+        @rpconfig_path = "#{root_path}/yaml/config.yaml"
         @history_path = "#{root_path}/yaml/history.yaml"
         @registered_path = "#{root_path}/yaml/registered.yaml"
     end
@@ -23,7 +23,7 @@ class InOut
     end
 
     def write_config(data)
-        write(data, @config_path)
+        write(data, @rpconfig_path)
     end
 
     def read_registered
@@ -42,11 +42,11 @@ class InOut
         return sorted_data.map { |m| History.new(m) }
     end
 
-    def read_config
-        data = read(@config_path)
+    def read_rpconfig
+        data = read(@rpconfig_path)
         return [] if data.nil?
 
-        return data.map { |m| Config.new(m) }
+        return RpConfig.new(data)
     end
     
     private def write(data, path_to_yaml)

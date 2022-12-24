@@ -5,13 +5,17 @@ class List < Command
     def initialize(subcommand)
         @in_out = InOut.new()
         @history = @in_out.read_history()
+        @config = @in_out.read_rpconfig()
         @subcommand = subcommand
     end
     
     def run
         return unless is_executable?
 
-        @history.each do |m|
+        @history.each.with_index(1) do |m, i|
+
+            break if i > @config.max_number_of_history
+
             puts "#{m.order}. #{m.name} open by #{m.open_by}"
             puts " ---- #{m.project}"
         end
