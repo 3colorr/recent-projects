@@ -4,6 +4,9 @@
 
 require "yaml"
 require "fileutils"
+require_relative "model/history"
+require_relative "model/registered"
+require_relative "model/rpconfig"
 
 class InOut
 
