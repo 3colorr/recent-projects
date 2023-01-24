@@ -25,7 +25,7 @@ class InOut
         write(data, @history_path)
     end
 
-    def write_config(data)
+    def write_rpconfig(data)
         write(data, @rpconfig_path)
     end
 
