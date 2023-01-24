@@ -14,12 +14,24 @@ class Config < Command
         if @subcommand.size == 1
             @config.show_all
         else
-
+            @config.setValue(@subcommand)
+            @in_out.write_rpconfig(@config.yaml_data())
         end
     end
 
     def is_executable?
-        if @subcommand.size > 2
+        case @subcommand.size
+        when 1 then
+            unless @config.isVaildShowAll?(@subcommand)
+                show_help()
+                return false
+            end
+        when 3 then
+            unless @config.isVaildConfigName?(@subcommand)
+                show_help()
+                return false
+            end
+        else
             show_help()
             return false
         end
@@ -29,7 +41,9 @@ class Config < Command
 
     def show_help
         puts "Command: config"
-        puts "    Show recently opened projects along with 'history id'."
-        puts "Usage: rp config [-option value]"
+        puts "Usage 1: rp config"
+        puts "    Show configure list."
+        puts "Usage 2: rp config [config-name] [value]"
+        puts "    Set value to configure."
     end
 end
