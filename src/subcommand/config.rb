@@ -45,5 +45,11 @@ class Config < Command
         puts "    Show configure list."
         puts "Usage 2: rp config [config-name] [value]"
         puts "    Set value to configure."
+        puts "(e.g.)"
+        puts "$ rp config"
+        puts "*Configure Name: Value"
+        puts "list_item_a: 1"
+        puts "list_item_b: 2"
+        puts "$ rp config list_item_a 3"
     end
 end
