@@ -30,7 +30,8 @@ class Add < Command
         end
 
         app_name = @subcommand[1]
-        escaped_path = @subcommand[2].gsub(" ", "\\ ")
+        app_path = (@subcommand[2] == ".") ? Dir.pwd : @subcommand[2]
+        escaped_path = app_path.gsub(" ", "\\ ")
 
         #Check duplication
         @registered.each do |m|
