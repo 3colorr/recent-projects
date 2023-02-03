@@ -13,6 +13,11 @@ class Options
     end
 
     def validate?(args)
+        if args.empty?
+            show_help()
+            return false
+        end
+
         begin
             @subcommands = @opt.parse!(args)
             return true
