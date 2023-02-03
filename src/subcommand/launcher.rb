@@ -36,10 +36,10 @@ class Launcher < Command
             end
 
             @app = app.first.path
-            @project = @subcommand[1]
+            @project = (@subcommand[1] == ".") ? Dir.pwd : @subcommand[1]
 
             #Add a latest history to top of history list.
-            latest = History.new({open_by: @subcommand[0], project: @subcommand[1], order: @history.size + 1})
+            latest = History.new({open_by: @subcommand[0], project: @project, order: @history.size + 1})
             latest.swap_order(@history[0]) if @history.size > 0
             @history << (latest)
             @in_out.write_history(@history.map { |m| m.zipped })
