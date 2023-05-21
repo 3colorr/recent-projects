@@ -16,6 +16,22 @@ class InOut
         @rpconfig_default_path = "#{root_path}/yaml/config-default.yaml"
         @history_path = "#{root_path}/yaml/history.yaml"
         @registered_path = "#{root_path}/yaml/registered.yaml"
+
+        unless is_exist_config?
+            puts ">> Info"
+            puts "Not found config.yaml."
+            puts "Initialized: Created a new config.yaml."
+            puts "------------------------------------------"
+        end
+    end
+
+    def is_exist_config?
+        unless File.exist?(@rpconfig_path)
+            FileUtils.cp(@rpconfig_default_path, @rpconfig_path)
+            return false
+        end
+        
+        return true
     end
 
     def write_registered(data)
