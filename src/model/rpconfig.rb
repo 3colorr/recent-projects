@@ -31,6 +31,18 @@ class RpConfig
     end
 
     def max_number_of_history
-        return @config["max_number_of_history"]
+        begin
+            return Integer(@config["max_number_of_history"])
+
+        rescue ArgumentError => exception_argument_error
+            puts "max_number_of_history can not convert to integer. -> #{@config["max_number_of_history"]}"
+            puts "Use default value. -> 4"
+            return 4
+
+        rescue TypeError => exception_type_error
+            puts "max_number_of_history may be nil. -> #{@config["max_number_of_history"]}"
+            puts "Use default value. -> 4"
+            return 4
+        end
     end
 end
