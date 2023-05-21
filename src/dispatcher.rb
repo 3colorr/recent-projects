@@ -3,6 +3,7 @@ require_relative "subcommand/launcher"
 require_relative "subcommand/list"
 require_relative "subcommand/remove"
 require_relative "subcommand/apps"
+require_relative "subcommand/config"
 
 class Dispatcher
     def initialize(args)
@@ -26,6 +27,10 @@ class Dispatcher
         when "apps"
             apps = Apps.new(@subcommand)
             apps.run()
+
+        when "config"
+            config = Config.new(@subcommand)
+            config.run()
 
         else
             launcher = Launcher.new(@subcommand)
