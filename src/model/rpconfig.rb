@@ -9,7 +9,11 @@ class RpConfig
     end
 
     def show_all
-        puts "*Configure Name: Value"
+        puts "----"
+        puts "usage: rp config config_name value"
+        puts "--------------------------------------------"
+        puts "* Configure Name: Value"
+        puts "--------------------------------------------"
         @config.each do |key, value|
             puts "#{key}: #{value}"
         end
