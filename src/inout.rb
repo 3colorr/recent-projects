@@ -13,6 +13,7 @@ class InOut
     def initialize
         root_path = File.expand_path(__dir__)
         @rpconfig_path = "#{root_path}/yaml/config.yaml"
+        @rpconfig_default_path = "#{root_path}/yaml/config-default.yaml"
         @history_path = "#{root_path}/yaml/history.yaml"
         @registered_path = "#{root_path}/yaml/registered.yaml"
     end
@@ -49,7 +50,9 @@ class InOut
         data = read(@rpconfig_path)
         return [] if data.nil?
 
-        return RpConfig.new(data)
+        default_data = read(@rpconfig_default_path)
+
+        return RpConfig.new(data, default_data)
     end
     
     private def write(data, path_to_yaml)

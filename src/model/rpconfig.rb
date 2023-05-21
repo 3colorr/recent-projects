@@ -1,6 +1,7 @@
 class RpConfig
-    def initialize(data)
+    def initialize(data, default_data)
         @config = data
+        @default_config = default_data
 
         @config_command = 0
         @config_name = 1
@@ -35,14 +36,54 @@ class RpConfig
             return Integer(@config["max_number_of_history"])
 
         rescue ArgumentError => exception_argument_error
+            val = default_max_number_of_history
+            puts "------------------------------------------------------------"
             puts "max_number_of_history can not convert to integer. -> #{@config["max_number_of_history"]}"
-            puts "Use default value. -> 4"
-            return 4
+            puts "Use default value. -> #{val}"
+            puts "Set default value:#{val} to max_number_of_history."
+            puts "------------------------------------------------------------"
+
+            @config["max_number_of_history"] = val
+            return val
 
         rescue TypeError => exception_type_error
+            val = default_max_number_of_history
+            puts "------------------------------------------------------------"
             puts "max_number_of_history may be nil. -> #{@config["max_number_of_history"]}"
-            puts "Use default value. -> 4"
-            return 4
+            puts "Use default value. -> #{val}"
+            puts "Set default value:#{val} to max_number_of_history."
+            puts "------------------------------------------------------------"
+
+            @config["max_number_of_history"] = val
+            return val
+        end
+    end
+
+    def default_max_number_of_history
+        begin
+            return Integer(@default_config["max_number_of_history"])
+
+        rescue ArgumentError => exception_argument_error
+            val = 4
+            puts "----------------------------------"
+            puts "Invaild default value. -> #{@default_config["max_number_of_history"]}"
+            puts "Use a value. -> #{val}"
+            puts "Set a value:#{val} to max_number_of_history."
+            puts "------------------------------------------------------------"
+
+            @config["max_number_of_history"] = val
+            return val
+
+        rescue TypeError => exception_type_error
+            val = 4
+            puts "----------------------------------"
+            puts "Nothing default value. -> #{@default_config["max_number_of_history"]}"
+            puts "Use a value. -> #{val}"
+            puts "Set a value:#{val} to max_number_of_history."
+            puts "------------------------------------------------------------"
+
+            @config["max_number_of_history"] = val
+            return val
         end
     end
 end
