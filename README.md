@@ -9,12 +9,12 @@ This launcher expect to work on MacOS.
 # Platform
 ### jp
 以下の環境で動作確認しています。
-- Ruby 3.1.2
-- MacOS 13.0.1
+- Ruby 3.2.1
+- MacOS 13.3.1(a)
 ### en
 We have confirmed the operation in the following environment.
-- Ruby 3.1.2
-- MacOS 13.0.1
+- Ruby 3.2.1
+- MacOS 13.3.1(a)
 
 # How it works
 ### jp
