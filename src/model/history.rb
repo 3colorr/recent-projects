@@ -26,6 +26,10 @@ class History
         @order = other
     end
 
+    def order_backward()
+        @order += 1
+    end
+
     def zipped
         return {project: @project, open_by: @open_by, order: @order}
     end
