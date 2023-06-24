@@ -39,9 +39,11 @@ class Launcher < Command
             @project = (@subcommand[1] == ".") ? Dir.pwd : @subcommand[1]
 
             #Add a latest history to top of history list.
-            latest = History.new({open_by: @subcommand[0], project: @project, order: @history.size + 1})
-            latest.swap_order(@history[0]) if @history.size > 0
-            @history << (latest)
+            if @history.size > 0
+                @history.map { |m| m.order_backward() }
+            end
+            latest = History.new({open_by: @subcommand[0], project: @project, order: 1})
+            @history.unshift(latest)
             @in_out.write_history(@history.map { |m| m.zipped })
         
         else
@@ -68,7 +70,8 @@ class Launcher < Command
 
             #Executed history is moved to top of history list.
             if @history.size > 1
-                history.first.swap_order(@history[0])
+                @history.insert(0, @history.delete_at(history.first.order - 1))
+                @history.map.with_index(1) { |m, i| m.set_order(i) }
                 @in_out.write_history(@history.map { |m| m.zipped })
             end
         end
