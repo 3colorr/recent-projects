@@ -68,6 +68,12 @@ class Launcher < Command
             @app = app.first.path
             @project = history.first.project
 
+            # Copy project path to clipboard.
+            IO.popen("pbcopy", "w") { |io|
+                io.puts @project
+                io.close_write
+            }
+
             #Executed history is moved to top of history list.
             if @history.size > 1
                 @history.insert(0, @history.delete_at(history.first.order - 1))
