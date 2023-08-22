@@ -3,6 +3,14 @@ class RpConfig
         @config = data
         @default_config = default_data
 
+        if @config.size < @default_config.size
+            @default_config.each do |key, value|
+                unless @config.has_key?(key)
+                    @config[key] = value
+                end
+            end
+        end
+
         @config_command = 0
         @config_name = 1
         @config_value = 2
