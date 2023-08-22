@@ -7,6 +7,7 @@ class Launcher < Command
         @in_out = InOut.new()
         @history = @in_out.read_history()
         @registered = @in_out.read_registered()
+        @config = @in_out.read_rpconfig()
     end
 
     def run
@@ -14,6 +15,15 @@ class Launcher < Command
 
         puts "Open: #{@project}"
         system("#{@app} #{@project}")
+
+        if @config.is_copy_path_to_clipboard
+            IO.popen("pbcopy", "w") { |io|
+                io.puts @project
+                io.close_write
+            }
+
+            puts "Copied to clipboard.=>#{@project}"
+        end
     end
 
     def is_executable?
