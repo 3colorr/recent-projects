@@ -99,65 +99,65 @@ class RpConfig
         end
     end
 
-    # copy_path_to_clipboard is boolean method that copy project path to clipboard.
-    # If copy_path_to_clipboard is '0', return false.
-    # If copy_path_to_clipboard is '1', return true.
-    # If copy_path_to_clipboard is not '0' or '1' or exception, return false.
-    def is_copy_path_to_clipboard
+    # copy_project_path_to_clipboard is boolean method that copy project path to clipboard.
+    # If copy_project_path_to_clipboard is '0', return false.
+    # If copy_project_path_to_clipboard is '1', return true.
+    # If copy_project_path_to_clipboard is not '0' or '1' or exception, return false.
+    def is_copy_project_path_to_clipboard
         begin
-            return Integer(@config["copy_path_to_clipboard"]) == 1
+            return Integer(@config["copy_project_path_to_clipboard"]) == 1
 
         rescue ArgumentError => exception_argument_error
-            val = default_copy_path_to_clipboard
+            val = default_copy_project_path_to_clipboard
             puts "------------------------------------------------------------"
-            puts "copy_path_to_clipboard can not convert to integer. -> #{@config["copy_path_to_clipboard"]}"
+            puts "copy_project_path_to_clipboard can not convert to integer. -> #{@config["copy_project_path_to_clipboard"]}"
             puts "Use default value. -> #{val}"
-            puts "Set default value:#{val} to copy_path_to_clipboard."
+            puts "Set default value:#{val} to copy_project_path_to_clipboard."
             puts "------------------------------------------------------------"
 
-            @config["copy_path_to_clipboard"] = val
+            @config["copy_project_path_to_clipboard"] = val
             return false
 
         rescue TypeError => exception_type_error
-            val = default_copy_path_to_clipboard
+            val = default_copy_project_path_to_clipboard
             puts "------------------------------------------------------------"
-            puts "copy_path_to_clipboard may be nil. -> #{@config["copy_path_to_clipboard"]}"
+            puts "copy_project_path_to_clipboard may be nil. -> #{@config["copy_project_path_to_clipboard"]}"
             puts "Use default value. -> #{val}"
-            puts "Set default value:#{val} to copy_path_to_clipboard."
+            puts "Set default value:#{val} to copy_project_path_to_clipboard."
             puts "------------------------------------------------------------"
 
-            @config["copy_path_to_clipboard"] = val
+            @config["copy_project_path_to_clipboard"] = val
             return false
         end
     end
 
-    # default_copy_path_to_clipboard return default value of copy_path_to_clipboard.
-    # Default value is @default_config["copy_path_to_clipboard"].
-    # If default value is exception, set @config["copy_path_to_clipboard"] to val(='0') and then return val.
-    def default_copy_path_to_clipboard
+    # default_copy_project_path_to_clipboard return default value of copy_project_path_to_clipboard.
+    # Default value is @default_config["copy_project_path_to_clipboard"].
+    # If default value is exception, set @config["copy_project_path_to_clipboard"] to val(='0') and then return val.
+    def default_copy_project_path_to_clipboard
         begin
-            return Integer(@default_config["copy_path_to_clipboard"])
+            return Integer(@default_config["copy_project_path_to_clipboard"])
 
         rescue ArgumentError => exception_argument_error
             val = 0
             puts "----------------------------------"
-            puts "Invaild default value. -> #{@default_config["copy_path_to_clipboard"]}"
+            puts "Invaild default value. -> #{@default_config["copy_project_path_to_clipboard"]}"
             puts "Use a value. -> #{val}"
-            puts "Set a value:#{val} to copy_path_to_clipboard."
+            puts "Set a value:#{val} to copy_project_path_to_clipboard."
             puts "------------------------------------------------------------"
 
-            @config["copy_path_to_clipboard"] = val
+            @config["copy_project_path_to_clipboard"] = val
             return val
 
         rescue TypeError => exception_type_error
             val = 0
             puts "----------------------------------"
-            puts "Nothing default value. -> #{@default_config["copy_path_to_clipboard"]}"
+            puts "Nothing default value. -> #{@default_config["copy_project_path_to_clipboard"]}"
             puts "Use a value. -> #{val}"
-            puts "Set a value:#{val} to copy_path_to_clipboard."
+            puts "Set a value:#{val} to copy_project_path_to_clipboard."
             puts "------------------------------------------------------------"
 
-            @config["copy_path_to_clipboard"] = val
+            @config["copy_project_path_to_clipboard"] = val
             return val
         end
     end

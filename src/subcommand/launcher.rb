@@ -16,7 +16,7 @@ class Launcher < Command
         puts "Open: #{@project}"
         system("#{@app} #{@project}")
 
-        if @config.is_copy_path_to_clipboard
+        if @config.is_copy_project_path_to_clipboard
             IO.popen("pbcopy", "w") { |io|
                 io.puts @project
                 io.close_write
